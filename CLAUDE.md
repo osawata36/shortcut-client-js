@@ -42,16 +42,16 @@
 
 ### テスト実行
 ```bash
-yarn test
+npm test
 ```
 
 ### リント・フォーマット
 ```bash
-yarn lint
-yarn format
+npm run lint
+npm run format
 ```
 
 ### ビルド
 ```bash
-yarn build
+npm run build
 ```

@@ -26,7 +26,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "yarn build:client && yarn build:add-typedoc-comments && tsdown",
+    "build": "npm run build:client && npm run build:add-typedoc-comments && tsdown",
     "build:add-typedoc-comments": "npx jscodeshift -t scripts/add-typedoc-comments.ts --extensions=ts --parser=ts src/generated/**",
     "build:client": "swagger-typescript-api generate --path ./schema/shortcut.swagger.json --output ./src/generated --clean-output --axios --modular --templates ./templates",
     "build:docs": "typedoc ./src --exclude 'src/__tests__/**'",
@@ -34,8 +34,8 @@
     "format": "prettier --write -l *.{json,md,prettierrc} '{src,scripts}/**/*.ts'",
     "format:check": "prettier --check *.{json,md,prettierrc} '{src,scripts}/**/*.ts'",
     "lint": "eslint 'src/**/*.{js,ts}'",
-    "prepublishOnly": "yarn build",
-    "sync:schema": "curl --silent https://developer.shortcut.com/api/rest/v3/shortcut.swagger.json --output ./schema/shortcut.swagger.json && yarn validate:schema",
+    "prepublishOnly": "npm run build",
+    "sync:schema": "curl --silent https://developer.shortcut.com/api/rest/v3/shortcut.swagger.json --output ./schema/shortcut.swagger.json && npm run validate:schema",
     "test": "jest",
     "validate:examples": "npx tsc examples/*.ts --noEmit",
     "validate:schema": "swagger-cli validate ./schema/shortcut.swagger.json"
